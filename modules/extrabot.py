@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-tgg.py - The Geek Group Phenny Module
+extrabot.py - Modified Custom Extra Functions Phenny Module
 Phenny Copyright 2008, Sean B. Palmer, inamidst.com
 This module is copyright 2011, Steven Vaught
 Licensed under the Eiffel Forum License 2.
@@ -22,43 +22,6 @@ def fortune(phenny, input):
 fortune.commands = ['quote', 'fortune']
 fortune.example = ".quote"
 fortune.priority = 'low'
-
-def minecraft(phenny, input):
-    if input.sender.startswith('#'): return phenny.reply("This command only available in private message.")
-    # Set up
-    s = socket.socket()
-    t = socket.socket()
-    u = socket.socket()
-    v = socket.socket()
-    gamerx = cprossu = packethumper = bitviper = "UP"
-    
-    # Attempt connections
-    try:
-        s.connect(('gamerxreviews.net', 25565))
-    except:
-        gamerx = "DOWN"
-    try:
-        t.connect(('72.222.196.252',25565))
-    except:
-        cprossu = "DOWN"
-    try:
-        u.connect(('minecraft.nerderosity.com',25565))
-    except:
-        packethumper = "DOWN"
-    try:
-        v.connect(('minecraft.bitviper.org',25565))
-    except:
-        bitviper = "DOWN"
-    
-    # output
-    phenny.reply( "GuardianZozo's minecraft server: gamerxreviews.net:25565. Server Status: {}".format(gamerx) )
-    phenny.reply( "Cprossu's minecraft server: 72.222.196.252:25565. Server Status: {}".format(cprossu) )
-    phenny.reply( "PacketHumper's minecraft server: minecraft.nerderosity.com:25565. Server Status: {}".format(packethumper) )
-    phenny.reply( "BitViper's minecraft server: minecraft.bitviper.org:25565. Server Status: {}".format(bitviper) )
-minecraft.commands = ['minecraft']
-minecraft.example = ".minecraft"
-minecraft.priority = 'low'
-minecraft.thread = True
 
 def bored(phenny, input):
   import bored
